@@ -51,6 +51,11 @@ public class LargestSumContiguousSubArray {
 				end = i;
 		}
 		System.out.println("Max sum of contiguous subarray is: " + maxSoFar);
+		System.out.println("And sub array is:");
+		System.out.println("");
+		for(int k=start;k<=end;k++){
+			System.out.print(arr[k] + " ");
+		}
 	}
 	public static int max(int a,int b){
 		return a > b ? a : b;
