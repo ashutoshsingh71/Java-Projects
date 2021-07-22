@@ -1,5 +1,7 @@
 package com.company;
 
+import TrieImplementation.Trie;
+
 import java.io.File;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -11,12 +13,10 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Scanner;
 
-import TrieImplementation.Trie;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         /*int[][] matrix = {
                 { 0, 1, 0 },
                 { 1, 0, 0 },
@@ -61,6 +61,51 @@ public class Main {
         String line = "reg 1 B V";
        int n = Integer.parseInt(line.replaceAll("[^0-9]", ""));
        map.put("Ab",new ArrayList<Integer>().add(n));*/
+
+        /*Map<String,String> map = new HashMap<>();
+        map.put("Chennai", "Idly");
+        map.put("Mumbai","vadapav");
+        map.put("kolkata","rasgulla");
+
+        for(String city : map.keySet()){
+            System.out.println(map.get(city));
+            map.put("Hyderabad","Biryani");
+        }*/
+        /*long [] a1 = {3,4,5};
+        long [] a3 = badStuff(a1);
+        for(long i : a3){
+            System.out.println(i);
+        }*/
+        Scanner scn = new Scanner(System.in);
+        List<String> list = new ArrayList<>();
+        System.out.println("Enter the number of contacts to be stored: ");
+        int num = scn.nextInt();
+        int i = 1;
+        while(i <= num){
+            System.out.println("Enter name: ");
+            String name = scn.next();
+            list.add(name);
+            i++;
+        }
+
+        /*list.add("Ajay");
+        list.add("Ajenta");
+        list.add("Ajor");
+        list.add("Akash");
+        list.add("Akshay");*/
+        Trie trie = new Trie(list);
+        System.out.println("Enter String to be searched: ");
+        String target = scn.next();
+        //String str = "Aka";
+        List<String> stringList = trie.getAllStringWithGivenPrefix(target);
+        for (String s:
+                stringList) {
+            System.out.println(s);
+        }
+    }
+    public static long[] badStuff(long [] a2){
+        a2[1] = 7;
+        return a2;
     }
 }
 
